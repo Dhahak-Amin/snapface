@@ -1,0 +1,15 @@
+<div class="face-snap-card">
+  <h1> {{faceSnap.title}} 😊</h1>
+  <p> {{faceSnap.createdDate}} 📅</p>
+  <p> Face Snape crée le {{faceSnap.description}} ✨</p>
+  @if (faceSnap.location) {
+    <p>Localisation : {{ faceSnap.location }}</p>
+}@else {
+    <p>Pas de localisation</p>}
+
+  <img [src]="faceSnap.imageUrl" alt="faceSnap.title" />
+  <br>
+  <p>
+  <button  (click)=" faceSnap.OnAddSnap()"> {{faceSnap.title_button}} </button>
+ <span [ngStyle]="{color:'rgb(0,'+faceSnap.snaps+',0)' }" >   Nombre totale des Likes =  {{faceSnap.snaps}} 👍</span> </p> 
+</div>
