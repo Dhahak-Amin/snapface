@@ -1,9 +1,9 @@
-<div class="face-snap-card">
-  <h1> {{faceSnap.title}} 😊</h1>
-  <p> {{faceSnap.createdDate}} 📅</p>
-  <p> Face Snape crée le {{faceSnap.description}} ✨</p>
+<div class="face-snap-card" [ngClass]="{snapped: faceSnap.isSnapped}">
+  <h1> {{faceSnap.title | titlecase}} 😊</h1>
+  <p> {{faceSnap.createdDate |  date: 'd MMMM yyyy, à HH:mm'}}</p>
+  <p> Face Snape crée le {{faceSnap.description | lowercase}} ✨</p>
   @if (faceSnap.location) {
-    <p>Localisation : {{ faceSnap.location }}</p>
+    <p>Localisation : {{ faceSnap.location  | uppercase}}</p>
 }@else {
     <p>Pas de localisation</p>}
 

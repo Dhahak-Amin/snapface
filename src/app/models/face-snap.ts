@@ -1,13 +1,17 @@
 export class FaceSnap {
   
     location?: string;
+    id !: string;
     constructor(
    public title: string,
    public description: string,
    public imageUrl: string, public createdDate: Date, public snaps: number, public   title_button:string,
     public isSnapped: boolean = false,
   )
-  {}
+  {
+    this.id=crypto.randomUUID().substring(0, 8);
+    this.isSnapped = false;
+  }
 
   public setLocation(location: string) {
     this.location = location;
@@ -15,9 +19,12 @@ export class FaceSnap {
   getLocation() {              
     return this.location;
   }
-
-
-  OnAddSnap(): string {
+  withLocation(location: string) {
+    this.location = location;
+    return this;
+  }
+    
+OnAddSnap(): string {
     if (this.isSnapped) {
       this.snaps--;
       this.isSnapped = false;
@@ -29,7 +36,6 @@ export class FaceSnap {
       this.title_button = 'Oops, un Snap!'; 
       return this.title_button;
     }
-    return ''; // Default return statement to handle all code paths
   }
-      
-  }
+
+}

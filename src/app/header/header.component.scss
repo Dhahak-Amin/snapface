@@ -1,0 +1,53 @@
+/* Fancy styles for the header component */
+
+header {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    padding: 1.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .logo {
+        font-size: 2.5rem;
+        font-family: 'Courier New', Courier, monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        font-weight: bold;
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+            color: #ffdd57;
+            transform: scale(1.1);
+        }
+    }
+
+    nav {
+        margin-top: 1rem;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+
+            li {
+                a {
+                    text-decoration: none;
+                    color: #ffffff;
+                    font-weight: 500;
+                    padding: 0.5rem 1rem;
+                    border-radius: 5px;
+                    background: rgba(255, 255, 255, 0.1);
+                    transition: background 0.3s ease, color 0.3s ease;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                        color: #ffdd57;
+                    }
+                }
+            }
+        }
+    }
+}
