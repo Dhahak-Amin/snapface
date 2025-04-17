@@ -18,7 +18,7 @@ export class FaceSnapListComponent implements OnInit {
   faceSnaps!: FaceSnap[];
 
   constructor(  
-    private faceSnapService: FaceSnapService
+    private readonly faceSnapService: FaceSnapService
   ) {   
 } 
  

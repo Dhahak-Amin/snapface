@@ -24,18 +24,16 @@ export class FaceSnap {
     return this;
   }
     
-OnAddSnap(): string {
-    if (this.isSnapped) {
-      this.snaps--;
-      this.isSnapped = false;
-      this.title_button = 'Oh snap !';
-      return this.title_button;
-    } else {
-      this.isSnapped = true;  
-      this.snaps++;
-      this.title_button = 'Oops, un Snap!'; 
-      return this.title_button;
-    }
-  }
+  snap(): void {
+    this.isSnapped = true;
+    this.snaps++;
+    this.title_button = 'Oops, un Snap!';
+}
+
+unsnap(): void {
+    this.isSnapped = false;
+    this.snaps--;
+    this.title_button = 'Oh snap !';
+}
 
 }

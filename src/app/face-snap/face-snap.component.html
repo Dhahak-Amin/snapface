@@ -1,15 +1,20 @@
 <div class="face-snap-card" [ngClass]="{snapped: faceSnap.isSnapped}">
-  <h1> {{faceSnap.title | titlecase}} 😊</h1>
-  <p> {{faceSnap.createdDate |  date: 'd MMMM yyyy, à HH:mm'}}</p>
-  <p> Face Snape crée le {{faceSnap.description | lowercase}} ✨</p>
-  @if (faceSnap.location) {
-    <p>Localisation : {{ faceSnap.location  | uppercase}}</p>
-}@else {
-    <p>Pas de localisation</p>}
+  <h1>{{ faceSnap.title | titlecase }} 😊</h1>
+  <p>{{ faceSnap.createdDate | date: 'd MMMM yyyy, à HH:mm' }}</p>
+  <p>Face Snap crée le {{ faceSnap.description | lowercase }} ✨</p>
+  <p *ngIf="faceSnap.location; else noLocation">
+    Localisation : {{ faceSnap.location | uppercase }}
+  </p>
+  <ng-template #noLocation>
+    <p>Pas de localisation</p>
+  </ng-template>
 
-  <img [src]="faceSnap.imageUrl" alt="faceSnap.title" />
-  <br>
+  <img [src]="faceSnap.imageUrl" alt="{{ faceSnap.title }}" />
+  <br />
   <p>
-  <button  (click)=" faceSnap.OnAddSnap()"> {{faceSnap.title_button}} </button>
- <span [ngStyle]="{color:'rgb(0,'+faceSnap.snaps+',0)' }" >   Nombre totale des Likes =  {{faceSnap.snaps}} 👍</span> </p> 
+    <button (click)="onSnap()">{{ faceSnap.title_button }}</button>
+    <span [ngStyle]="{ color: 'rgb(0,' + faceSnap.snaps + ',0)' }">
+      Nombre total des Likes = {{ faceSnap.snaps }} 👍
+    </span>
+  </p>
 </div>
